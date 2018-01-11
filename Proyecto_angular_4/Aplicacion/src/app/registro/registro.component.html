@@ -1,0 +1,27 @@
+<div class="card posicion">
+    <div class="card-body">
+        <div class="text-center">
+            <h4 class="card-title position_center">Registrarse</h4>
+        </div>
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit(registroForm.value)">
+            <div class="md-form">
+                <input [formControl]="registroForm.get('nombre_input')" mdbActive type="text" id="nombre_input" class="form-control">
+                <label for="nombre_input" class="">Nombre</label>
+            </div>
+              <div class="md-form">
+                <input [formControl]="registroForm.get('correo_input')" mdbActive type="email" id="correo_input" class="form-control">
+                <label for="correo_input" class="">Correo</label>
+            </div>
+    
+            <div class="md-form">
+                <input [formControl]="registroForm.get('password_input')" mdbActive type="password" id="password_input" class="form-control">
+                <label for="password_input" class="">Contraseña</label>
+            </div>
+              <br><br>
+    
+            <button type="button" class="btn btn-primary btn-rounded waves-light full" mdbRippleRadius 
+            [routerLink]="['/login']">Cancelar</button>
+            <button type="submit" class="btn btn-primary btn-rounded waves-light full" mdbRippleRadius>Aceptar</button>       
+        </form>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card posicion">
+      <div class="card-body">
+          <div class="text-center">
+              <h4 class="card-title position_center">Iniciar Sesión</h4>
+          </div>
+          
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+            <div class="md-form">
+                <i class="fa fa-user prefix fa-2x"></i>
+                <input [formControl]="loginForm.get('username_input')" mdbActive type="text" id="username_input" class="form-control">
+                <label for="username_input" class="">Usuario</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-lock prefix fa-2x"></i>
+                <input [formControl]="loginForm.get('password_input')" mdbActive type="password" id="password_input" class="form-control">
+                <label for="password_input" class="">Contraseña</label>
+            </div>
+              <button type="submit" class="btn btn-primary btn-rounded waves-light full" mdbRippleRadius>Acceder</button><br><br>
+              <p>¿No es un miembro? <a href="/registro">Registrarse</a></p>
+          </form>
+
+ </div>
+</div>
