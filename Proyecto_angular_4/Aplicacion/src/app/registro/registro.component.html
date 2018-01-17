@@ -3,9 +3,10 @@
         <div class="text-center">
             <h4 class="card-title position_center">Registrarse</h4>
         </div>
+        <p>Hello {{username}}!</p>
         <form [formGroup]="registroForm" (ngSubmit)="onSubmit(registroForm.value)">
             <div class="md-form">
-                <input [formControl]="registroForm.get('nombre_input')" mdbActive type="text" id="nombre_input" class="form-control">
+                <input [(ngModel)]="username" [formControl]="registroForm.get('nombre_input')" mdbActive type="text" id="nombre_input" class="form-control">
                 <label for="nombre_input" class="">Nombre</label>
             </div>
               <div class="md-form">

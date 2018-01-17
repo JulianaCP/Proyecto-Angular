@@ -27,3 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+let list: any[] = [1, true, "free"];
