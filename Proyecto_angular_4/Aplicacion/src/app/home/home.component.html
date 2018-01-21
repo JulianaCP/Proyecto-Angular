@@ -1,4 +1,5 @@
-<app-header></app-header>
-<br><br>
-<app-galery></app-galery>
+<app-header (header)="cargarComponent($event)"></app-header>
+
+<app-gallery *ngIf="option == 'gallery'"></app-gallery>
+<app-contact *ngIf="option == 'contact'"></app-contact>
 

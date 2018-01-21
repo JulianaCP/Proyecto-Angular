@@ -10,9 +10,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { GaleryComponent } from './galery/galery.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpModule } from '@angular/http';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -23,8 +23,8 @@ import { HttpModule } from '@angular/http';
     RegistroComponent,
     HomeComponent,
     HeaderComponent,
-    GaleryComponent,
-    ContactComponent
+    ContactComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
