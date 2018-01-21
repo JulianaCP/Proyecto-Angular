@@ -8,20 +8,31 @@ import { LoginComponent } from "./login/login.component";
 import { ROUTES } from "./app.routing";
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { GaleryComponent } from './galery/galery.component';
+import { ContactComponent } from './contact/contact.component';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Parallax,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    HomeComponent,
+    HeaderComponent,
+    GaleryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(ROUTES),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

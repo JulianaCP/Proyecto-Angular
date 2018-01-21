@@ -18,7 +18,15 @@
                 <input [formControl]="registroForm.get('password_input')" mdbActive type="password" id="password_input" class="form-control">
                 <label for="password_input" class="">Contraseña</label>
             </div>
-              <br><br>
+            <div class="md-form">
+                <label for="country_input" class="">País</label><br><br>
+                <select class="mdb-select" id="country_input" class="form-control" [formControl]="registroForm.get('country_input')" [(ngModel)]="this.primerPais">
+                    <option *ngFor="let c of this.countries" 
+                    value="{{c.name}}">{{c.name}}</option>
+                </select>
+                
+            </div>
+            
     
             <button type="button" class="btn btn-primary btn-rounded waves-light full" mdbRippleRadius 
             [routerLink]="['/login']">Cancelar</button>
