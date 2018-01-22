@@ -8,22 +8,36 @@ import { LoginComponent } from "./login/login.component";
 import { ROUTES } from "./app.routing";
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { ContactComponent } from './contact/contact.component';
+import { HttpModule } from '@angular/http';
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Parallax,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    HomeComponent,
+    HeaderComponent,
+    ContactComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(ROUTES),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+let list: any[] = [1, true, "free"];

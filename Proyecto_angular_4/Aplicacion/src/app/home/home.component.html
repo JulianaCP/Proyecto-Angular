@@ -1,0 +1,5 @@
+<app-header (header)="cargarComponent($event)" [homeLogin]="user"></app-header>
+
+<app-gallery *ngIf="option == 'gallery'"></app-gallery>
+<app-contact *ngIf="option == 'contact'"></app-contact>
+
