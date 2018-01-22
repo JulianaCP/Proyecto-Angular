@@ -8,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   option = "gallery";
+  user: any;
 
   cargarComponent(option_event){
     this.option = option_event;
   }
-  constructor() { }
+  constructor() {
+    var value = localStorage.getItem('user');
+    if(value == null){
+      this.user = "";
+    }
+    else{
+      this.user = value;
+    } 
+   }
 
   ngOnInit() {
   }

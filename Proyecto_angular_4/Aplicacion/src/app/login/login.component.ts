@@ -20,7 +20,13 @@ export class LoginComponent implements OnInit {
       'username_input': [''],
       'password_input': ['']
     });
-    
+  
+
+
+    if(localStorage.user == null){
+      localStorage.setItem('user',"");
+    }    
+
     if (localStorage.peopleList == null ) {
       this.persona = new Persona("Juliana", "JCP27@hotmail.com", "123", "Costa Rica");
       this.peopleList.push(this.persona);
@@ -30,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.list = JSON.stringify(this.peopleList);
       localStorage.setItem("peopleList",this.list);  
     }   
+    
     this.peopleList = JSON.parse(localStorage.peopleList);
    
   }
@@ -40,9 +47,13 @@ export class LoginComponent implements OnInit {
   onSubmit(form: any){
     var user = form.username_input;
     var password = form.password_input;
-    var correct = this.verificateUser(user,password);
-    if(correct == true){
-      this.router.navigate([`/home`], { relativeTo: this.route });
+    if(user != "" && password != ""){
+      var correct = this.verificateUser(user,password);
+      if(correct == true){
+
+        localStorage.setItem('user',user);
+        this.router.navigate([`/home`], { relativeTo: this.route });
+      }
     }
   }
 

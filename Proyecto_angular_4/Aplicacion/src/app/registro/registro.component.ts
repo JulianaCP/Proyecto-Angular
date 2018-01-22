@@ -44,12 +44,19 @@ export class RegistroComponent implements OnInit {
     var password = form.password_input;
     var country = form.country_input;
 
-    this.newPerson = new Persona(name,email,password,country);  
-    var users = JSON.parse(localStorage.peopleList);
-    users.push(this.newPerson);   
+    if(name!="" && email!= "" && password != "" && country != ""){
+      this.newPerson = new Persona(name,email,password,country);  
+      var users = JSON.parse(localStorage.peopleList);
+      users.push(this.newPerson);   
+  
+      var temp = JSON.stringify(users);
+      localStorage.setItem("peopleList",temp);
 
-    localStorage.setItem("peopleList",users);
-    this.router.navigate([`/home`], { relativeTo: this.route});
+
+      localStorage.setItem('user',"");
+      this.router.navigate([`/home`], { relativeTo: this.route});
+    }
+
   }
 
   getCountries(){

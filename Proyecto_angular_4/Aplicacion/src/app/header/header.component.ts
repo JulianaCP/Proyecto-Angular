@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,13 +7,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+
+  @Input('homeLogin') userHeader;
   @Output() header = new EventEmitter();
   evento = null;
   cargarEnHome(option_event){
     this.evento = option_event;
     this.header.emit(this.evento);
   }
-  constructor() { }
+  cerrarSesion(){
+    localStorage.setItem('user',"");
+  }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
