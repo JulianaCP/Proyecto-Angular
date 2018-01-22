@@ -53,7 +53,7 @@ export class RegistroComponent implements OnInit {
       localStorage.setItem("peopleList",temp);
 
 
-      localStorage.setItem('user',"");
+      localStorage.setItem('user',name);
       this.router.navigate([`/home`], { relativeTo: this.route});
     }
 
