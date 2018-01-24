@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Persona } from "../models/persona.models";
-import { Http, Response } from "@angular/http";
-import 'rxjs/add/operator/map';
+
 import { Router, ActivatedRoute } from "@angular/router";
+
+
+import { DataService } from '../data.service';
+import { HttpClient } from "@angular/common/http";
+
+
 
 //se ocupa poner FormBuilder, FormGroup
 @Component({
@@ -17,10 +22,10 @@ export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup
   peopleList: Persona[]
-  countries: any[]
+  countries: any
   primerPais: any
   newPerson: Persona
-  constructor(private router:Router,private route: ActivatedRoute, private http: Http, formBuilder: FormBuilder) { 
+  constructor(private router:Router,private route: ActivatedRoute, public data: DataService, public _http: HttpClient, formBuilder: FormBuilder) { 
     this.countries = []
     this.registroForm = formBuilder.group({
       'nombre_input': [''],
@@ -29,10 +34,11 @@ export class RegistroComponent implements OnInit {
       'country_input':['']
     });
     this.peopleList = JSON.parse(localStorage.peopleList);
-    this.getCountries().subscribe(data => {
-      this.countries = data; 
-      this.primerPais = data[0].name;
-    });
+
+   
+    this.countries = this.data.getCountries;
+    console.log(this.countries);
+      
   }
 
   ngOnInit() {
@@ -58,9 +64,4 @@ export class RegistroComponent implements OnInit {
     }
 
   }
-
-  getCountries(){
-    return this.http.get(this.apiUrl).map((res: Response) => res.json());
-  }
-
 }
