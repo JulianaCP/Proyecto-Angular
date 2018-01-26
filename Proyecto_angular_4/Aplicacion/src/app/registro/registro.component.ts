@@ -4,9 +4,8 @@ import { Persona } from "../models/persona.models";
 
 import { Router, ActivatedRoute } from "@angular/router";
 
-
 import { DataService } from '../data.service';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHandler} from "@angular/common/http";
 
 
 
@@ -22,11 +21,11 @@ export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup
   peopleList: Persona[]
-  countries: any
+  countries: Array<any>
   primerPais: any
   newPerson: Persona
   constructor(private router:Router,private route: ActivatedRoute, public data: DataService, public _http: HttpClient, formBuilder: FormBuilder) { 
-    this.countries = []
+    this.primerPais = "Afghanistan";
     this.registroForm = formBuilder.group({
       'nombre_input': [''],
       'correo_input': [''],
@@ -34,11 +33,7 @@ export class RegistroComponent implements OnInit {
       'country_input':['']
     });
     this.peopleList = JSON.parse(localStorage.peopleList);
-
-   
-    this.countries = this.data.getCountries;
-    console.log(this.countries);
-      
+    this.countries = this.data.countries;    
   }
 
   ngOnInit() {

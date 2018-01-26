@@ -22,7 +22,7 @@
                 <label for="country_input" class="">País</label><br><br>
                 <select class="mdb-select" id="country_input" class="form-control" [formControl]="registroForm.get('country_input')" [(ngModel)]="this.primerPais">
                     <option *ngFor="let c of this.countries" 
-                    value="{{c.name}}">{{c.name}}</option>
+                    value="{{c}}">{{c}}</option>
                 </select>
                 
             </div>

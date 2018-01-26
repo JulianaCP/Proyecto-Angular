@@ -9,20 +9,22 @@ export class DataService {
 
     githubUsers: Array<any>
     countries: Array<any>
+    dataAPI: any
     constructor(public _http: HttpClient) {
-        this.countries = new Array<any>()
-        this.getCountries()
+      this.countries = new Array<any>();
+      this.getCountries();
     }
     
     getCountries() {
-      this._http.get<any[]>(this.apiUrl)
-        .subscribe(
-          success => {
-            this.countries = success
-          },
-          err => {
-            console.log(err)
-          }
-        )
+      this._http.get(this.apiUrl).subscribe(data => {
+        this.dataAPI = data;
+        this.names();
+      });
+    }
+
+    private names(): void {
+      this.dataAPI.forEach(m => {
+        this.countries.push(m.name)
+      })
     }
 }

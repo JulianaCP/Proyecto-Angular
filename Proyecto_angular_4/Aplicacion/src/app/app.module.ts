@@ -13,8 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpModule } from '@angular/http';
 import { GalleryComponent } from './gallery/gallery.component';
-
-
+import { DataService } from './data.service';
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +32,10 @@ import { GalleryComponent } from './gallery/gallery.component';
     RouterModule.forRoot(ROUTES),
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
